@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Weiterleitung zur Google-Bewertung</title>
+  <meta name="robots" content="noindex">
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const rawPraxis = params.get("praxis") || "";
+    const normalizedPraxis = rawPraxis.toLowerCase().replace(/\s+/g, "").replace(/[^a-z0-9]/g, "");
+
+    const links = {
+      "8580": "https://g.page/r/CaDk-Oeh3eb_EAE/review",
+      "5400": "https://g.page/r/CWKulDyh_ZxwEAE/review",
+      "4052": "https://g.page/r/CRofPPRL9nUiEAE/review",
+      "4512": "https://g.page/r/CYBhVmGbkCbpEAE/review",
+      "3123": "https://g.page/r/CRUDGtzLjZwMEAE/review",
+      "3400": "https://g.page/r/CbZY8sojCa82EAE/review",
+      "9200": "https://g.page/r/CZZGSCFY6pb8EAE/review",
+      "9100": "https://g.page/r/CUnIMYG_PAIJEAE/review",
+      "4313": "https://g.page/r/CeecCdwIRZg2EAE/review",
+      "4104": "https://g.page/r/CSUG_vyAR7wBEAE/review",
+      "4665": "https://g.page/r/CbxKKbKx0p6VEAE/review",
+      "4600": "https://g.page/r/CfNVEObQUJ2rEAE/review",
+      "4310": "https://g.page/r/Ceyw8my8ZVpsEAE/review",
+      "5301": "https://g.page/r/CZxmWE-UJaUmEAE/review",
+      "4450": "https://g.page/r/CVvhfvGgFp7oEAE/review",
+      "5034": "https://g.page/r/CR2aHY_U7bvREAE/review",
+      "8049": "https://g.page/r/CajO-xW8CzgXEAE/review"
+    };
+
+    const ziel = links[normalizedPraxis];
+
+    if (ziel) {
+      window.location.replace(ziel);
+    } else {
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("meldung").textContent =
+          "Standort nicht erkannt. Bitte prüfen Sie den Link oder kontaktieren Sie uns.";
+      });
+    }
+  </script>
+</head>
+<body>
+  <p id="meldung">Sie werden jetzt zur Bewertung weitergeleitet…</p>
+</body>
+</html>
